@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./GameCardSlider.css";
 import Waldo1 from "../../../assets/imgs/waldo1.jpg";
 import Waldo2 from "../../../assets/imgs/waldo2.jpeg";
@@ -7,33 +7,45 @@ import Waldo3 from "../../../assets/imgs/waldo3.jpeg";
 import Waldo4 from "../../../assets/imgs/waldo4.jpeg";
 import GameCard from "./GameCard";
 
-function GameCardSlider() {
+function GameCardSlider(props) {
   const [currentCard, setCurrentCard] = useState(0);
+  const waldo1 = useRef();
+  const waldo2 = useRef();
+  const waldo3 = useRef();
+  const waldo4 = useRef();
   const gameCards = [
-    <GameCard
-      src={Waldo1}
-      gameName="The Beach"
-      gameDifficulty="Easy"
-      numberOfFinds="1"
-    />,
-    <GameCard
-      src={Waldo2}
-      gameName="The Bazaar"
-      gameDifficulty="Medium"
-      numberOfFinds="4"
-    />,
-    <GameCard
-      src={Waldo3}
-      gameName="The Feast"
-      gameDifficulty="Hard"
-      numberOfFinds="4"
-    />,
-    <GameCard
-      src={Waldo4}
-      gameName="Attack the Castle"
-      gameDifficulty="Extremely Hard"
-      numberOfFinds="5"
-    />,
+    {
+      src: Waldo1,
+      gameName: "The Beach",
+      gameDifficulty: "Easy",
+      numberOfFinds: "1",
+      setGameStart: props.setGameStart,
+      className: "theBeach",
+    },
+    {
+      src: Waldo2,
+      gameName: "The Bazzar",
+      gameDifficulty: "medium",
+      numberOfFinds: "4",
+      setGameStart: props.setGameStart,
+      className: "theBazzar",
+    },
+    {
+      src: Waldo3,
+      gameName: "The Feast",
+      gameDifficulty: "Hard",
+      numberOfFinds: "4",
+      setGameStart: props.setGameStart,
+      className: "theFeast",
+    },
+    {
+      src: Waldo4,
+      gameName: "The Siege",
+      gameDifficulty: "Extremly Hard",
+      numberOfFinds: "5",
+      setGameStart: props.setGameStart,
+      className: "theSiege",
+    },
   ];
   const handleNextCard = () => {
     if (currentCard <= 2) {
@@ -49,7 +61,13 @@ function GameCardSlider() {
       setCurrentCard(3);
     }
   };
-  const renderCurrentCard = gameCards[currentCard];
+  const renderCurrentCard = (
+    <GameCard
+      className={gameCards[currentCard].className}
+      gameCard={gameCards[currentCard]}
+      setChosenGame={props.setChosenGame}
+    />
+  );
 
   return (
     <div className="gameCardSlider">

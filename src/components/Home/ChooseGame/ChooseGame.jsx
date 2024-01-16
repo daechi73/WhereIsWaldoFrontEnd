@@ -1,10 +1,13 @@
 import React from "react";
 import GameCardSlider from "./GameCardSlider";
 
-function ChooseGame() {
+function ChooseGame(props) {
   return (
     <div className="chooseGame">
-      <GameCardSlider />
+      <GameCardSlider
+        setGameStart={props.setGameStart}
+        setChosenGame={props.setChosenGame}
+      />
     </div>
   );
 }

@@ -1,11 +1,13 @@
 import React from "react";
 import GameImg from "../Home/GameImg";
 import ChooseGame from "../Home/ChooseGame/ChooseGame";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./Home.css";
 
 function Home() {
-  const gameImgRef = useRef();
+  //const chosenGame = useRef();
+  const [gameStart, setGameStart] = useState(false);
+  const [chosenGame, setChosenGame] = useState({});
   const getCoordinatesOnImgClick = (e) => {
     var rect = e.target.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -14,14 +16,17 @@ function Home() {
     const yRatio = y / e.target.offsetHeight;
     // console.log("waldo poistion ratio: x=" + `${xRatio};` + ` y=${yRatio}`);
   };
-
+  if (gameStart) {
+    console.log("working");
+    console.log(chosenGame);
+  }
   return (
     <div className="home">
       <div className="header">
         <div className="title">Where's Waldo??</div>
       </div>
 
-      <ChooseGame />
+      <ChooseGame setGameStart={setGameStart} setChosenGame={setChosenGame} />
       {/* <GameImg getCoordinatesOnImgClick={getCoordinatesOnImgClick} /> */}
     </div>
   );
