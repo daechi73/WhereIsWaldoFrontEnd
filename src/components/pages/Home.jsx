@@ -2,6 +2,7 @@ import React from "react";
 import GameImg from "../Home/GameImg";
 import ChooseGame from "../Home/ChooseGame/ChooseGame";
 import { useRef } from "react";
+import "./Home.css";
 
 function Home() {
   const gameImgRef = useRef();
@@ -16,8 +17,12 @@ function Home() {
 
   return (
     <div className="home">
-      {/* <GameImg getCoordinatesOnImgClick={getCoordinatesOnImgClick} /> */}
+      <div className="header">
+        <div className="title">Where's Waldo??</div>
+      </div>
+
       <ChooseGame />
+      {/* <GameImg getCoordinatesOnImgClick={getCoordinatesOnImgClick} /> */}
     </div>
   );
 }
