@@ -9,10 +9,6 @@ import GameCard from "./GameCard";
 
 function GameCardSlider(props) {
   const [currentCard, setCurrentCard] = useState(0);
-  const waldo1 = useRef();
-  const waldo2 = useRef();
-  const waldo3 = useRef();
-  const waldo4 = useRef();
   const gameCards = [
     {
       src: Waldo1,
@@ -21,6 +17,7 @@ function GameCardSlider(props) {
       numberOfFinds: "1",
       setGameStart: props.setGameStart,
       className: "theBeach",
+      characters: ["Waldo"],
     },
     {
       src: Waldo2,
