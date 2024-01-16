@@ -14,20 +14,25 @@ function Home() {
     const y = e.clientY - rect.top;
     const xRatio = x / e.target.offsetWidth;
     const yRatio = y / e.target.offsetHeight;
-    // console.log("waldo poistion ratio: x=" + `${xRatio};` + ` y=${yRatio}`);
+    console.log("waldo poistion ratio: x=" + `${xRatio};` + ` y=${yRatio}`);
   };
   if (gameStart) {
-    console.log("working");
-    console.log(chosenGame);
+    // console.log("working");
+    // console.log(chosenGame);
   }
   return (
     <div className="home">
       <div className="header">
         <div className="title">Where's Waldo??</div>
       </div>
-
-      <ChooseGame setGameStart={setGameStart} setChosenGame={setChosenGame} />
-      {/* <GameImg getCoordinatesOnImgClick={getCoordinatesOnImgClick} /> */}
+      {gameStart ? (
+        <GameImg
+          getCoordinatesOnImgClick={getCoordinatesOnImgClick}
+          chosenGame={chosenGame}
+        />
+      ) : (
+        <ChooseGame setGameStart={setGameStart} setChosenGame={setChosenGame} />
+      )}
     </div>
   );
 }
