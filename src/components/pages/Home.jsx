@@ -1,5 +1,6 @@
 import React from "react";
-import GameImg from "../global/GameImg";
+import GameImg from "../Home/GameImg";
+import ChooseGame from "../Home/ChooseGame/ChooseGame";
 import { useRef } from "react";
 
 function Home() {
@@ -15,7 +16,8 @@ function Home() {
 
   return (
     <div className="home">
-      <GameImg getCoordinatesOnImgClick={getCoordinatesOnImgClick} />
+      {/* <GameImg getCoordinatesOnImgClick={getCoordinatesOnImgClick} /> */}
+      <ChooseGame />
     </div>
   );
 }
