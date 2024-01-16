@@ -18,14 +18,13 @@ function Home() {
     const yRatio = y / e.target.offsetHeight;
     console.log("waldo poistion ratio: x=" + `${xRatio};` + ` y=${yRatio}`);
   };
-  if (gameStart) {
-    // console.log("working");
-    // console.log(chosenGame);
-  }
+  const handleBackHomeBtn = () => {
+    setGameStart(false);
+  };
   return (
     <div className="home">
       <div className="header">
-        {gameStart ? <BackHomeSvg /> : ""}
+        {gameStart ? <BackHomeSvg onClick={handleBackHomeBtn} /> : ""}
         <div className="title">Where's Waldo??</div>
       </div>
       {gameStart ? (
