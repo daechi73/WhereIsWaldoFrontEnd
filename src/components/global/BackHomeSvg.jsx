@@ -1,7 +1,7 @@
 import "./BackHomeSvg.css";
-const BackHomeSvg = () => {
+const BackHomeSvg = (props) => {
   return (
-    <div className="backHome clickable">
+    <div className="backHome clickable" onClick={props.onClick}>
       <svg
         fill="white"
         height="2rem"
