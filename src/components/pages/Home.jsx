@@ -3,10 +3,12 @@ import GameImg from "../Home/GameImg";
 import ChooseGame from "../Home/ChooseGame/ChooseGame";
 import { useRef, useState } from "react";
 import "./Home.css";
+import BackHomeSvg from "../global/BackHomeSvg";
 
 function Home() {
   //const chosenGame = useRef();
   const [gameStart, setGameStart] = useState(false);
+  const [backHome, setBackHome] = useState(false);
   const [chosenGame, setChosenGame] = useState({});
   const getCoordinatesOnImgClick = (e) => {
     var rect = e.target.getBoundingClientRect();
@@ -23,6 +25,7 @@ function Home() {
   return (
     <div className="home">
       <div className="header">
+        {gameStart ? <BackHomeSvg /> : ""}
         <div className="title">Where's Waldo??</div>
       </div>
       {gameStart ? (
