@@ -1,5 +1,6 @@
 import React from "react";
 import GameCardSlider from "./GameCardSlider";
+import "./ChooseGame.css";
 
 function ChooseGame(props) {
   return (
