@@ -1,0 +1,12 @@
+.characterBoxCard {
+  display: flex;
+  gap: 0.5rem;
+}
+.characterBoxCard-img {
+  height: 3rem;
+}
+.characterBoxCard-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

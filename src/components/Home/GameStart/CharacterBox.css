@@ -1,0 +1,7 @@
+.characterBox {
+  display: none;
+  position: absolute;
+  border: solid;
+  background-color: black;
+  padding: 0.5rem;
+}
