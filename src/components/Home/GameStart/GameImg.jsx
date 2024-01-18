@@ -10,9 +10,13 @@ function GameImg(props) {
         className="gameImg-img"
         src={props.chosenGame.src}
         alt="gameImg"
-        onClick={props.getCoordinatesOnImgClick}
+        onClick={props.handleGameImgClick}
       />
-      <CharacterBox charBox={props.charBox} chosenGame={props.chosenGame} />
+      <CharacterBox
+        charBox={props.charBox}
+        chosenGame={props.chosenGame}
+        userClickCoords={props.userClickCoords}
+      />
     </div>
   );
 }
