@@ -9,6 +9,7 @@ function CharacterBox(props) {
         key={i}
         char={e}
         userClickCoords={props.userClickCoords}
+        userClickRatio={props.userClickRatio}
         charBox={props.charBox}
       />
     );

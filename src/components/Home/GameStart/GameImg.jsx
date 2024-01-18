@@ -16,6 +16,7 @@ function GameImg(props) {
         charBox={props.charBox}
         chosenGame={props.chosenGame}
         userClickCoords={props.userClickCoords}
+        userClickRatio={props.userClickRatio}
       />
     </div>
   );

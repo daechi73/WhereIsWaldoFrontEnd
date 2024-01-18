@@ -3,15 +3,17 @@ import "./CharacterBoxCard.css";
 
 function CharacterBoxCard(props) {
   const handleCharBoxCardClick = (e) => {
-    console.log(checkPositions());
+    console.log(props.userClickCoords);
+    console.log(props.userClickRatio);
+    // console.log(checkPositions());
     props.charBox.current.style.display = "none";
   };
   const checkPositions = () => {
     if (
-      props.char.top < props.userClickCoords.current.y &&
-      props.char.bottom > props.userClickCoords.current.y &&
-      props.char.left < props.userClickCoords.current.x &&
-      props.char.right > props.userClickCoords.current.x
+      props.char.top < props.userClickRatio.current.y &&
+      props.char.bottom > props.userClickRatio.current.y &&
+      props.char.left < props.userClickRatio.current.x &&
+      props.char.right > props.userClickRatio.current.x
     )
       return true;
     return false;

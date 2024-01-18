@@ -1,4 +1,4 @@
-const GameStartMethods = (charBox, userClickCoords) => {
+const GameStartMethods = (charBox, userClickCoords, userClickRatio) => {
   const hideCharBox = (e) => {
     charBox.current.style.display = "none";
   };
@@ -12,9 +12,11 @@ const GameStartMethods = (charBox, userClickCoords) => {
       hideCharBox();
     }
   };
-
-  const setUserClickCoords = (xRatio, yRatio) => {
-    userClickCoords.current = { x: xRatio, y: yRatio };
+  const setUserClickCoords = (xClient, yClient) => {
+    userClickCoords.current = { x: xClient, y: yClient };
+  };
+  const setUserClickRatio = (xRatio, yRatio) => {
+    userClickRatio.current = { x: xRatio, y: yRatio };
   };
   const getCoordinatesOnImgClick = (e) => {
     var rect = e.target.getBoundingClientRect();
@@ -22,7 +24,8 @@ const GameStartMethods = (charBox, userClickCoords) => {
     const y = e.clientY - rect.top;
     const xRatio = x / e.target.offsetWidth;
     const yRatio = y / e.target.offsetHeight;
-    setUserClickCoords(xRatio, yRatio);
+    setUserClickCoords(e.clientX, e.clientY);
+    setUserClickRatio(xRatio, yRatio);
     //console.log("waldo poistion ratio: x=" + `${xRatio};` + ` y=${yRatio}`);
   };
   const handleGameImgClick = (e) => {

@@ -6,7 +6,12 @@ import GameStartMethods from "../../GameSetupModules/GameStartMethods";
 function GameStart(props) {
   const charBox = useRef();
   const userClickCoords = useRef(null);
-  const gameStartMethods = GameStartMethods(charBox, userClickCoords);
+  const userClickRatio = useRef(null);
+  const gameStartMethods = GameStartMethods(
+    charBox,
+    userClickCoords,
+    userClickRatio
+  );
   return (
     <div className="gameStart">
       <GameImg
@@ -14,6 +19,7 @@ function GameStart(props) {
         handleGameImgClick={gameStartMethods.handleGameImgClick}
         charBox={charBox}
         userClickCoords={userClickCoords}
+        userClickRatio={userClickRatio}
       />
     </div>
   );
