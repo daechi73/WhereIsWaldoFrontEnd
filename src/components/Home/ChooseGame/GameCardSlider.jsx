@@ -22,7 +22,16 @@ function GameCardSlider(props) {
       numberOfFinds: "1",
       setGameStart: props.setGameStart,
       className: "theBeach",
-      characters: [{ char: "Waldo", src: WaldoFace }],
+      characters: [
+        {
+          char: "Waldo",
+          src: WaldoFace,
+          top: 0.79,
+          bottom: 0.9,
+          left: 0.86,
+          right: 0.88,
+        },
+      ],
     },
     {
       src: Waldo2,
